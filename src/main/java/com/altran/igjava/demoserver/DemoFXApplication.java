@@ -6,6 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+/**
+ * A very simple Java FX Application used to demonstrate a couple
+ * of aspects of the Java 11 ecosystem.
+ */
 public class DemoFXApplication extends Application {
 
     public static void main(String[] args) {

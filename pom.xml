@@ -9,9 +9,9 @@
     <packaging>jar</packaging>
 
     <properties>
+        <encoding>UTF-8</encoding>
         <java.version>11</java.version>
     </properties>
-
 
 
     <dependencies>
@@ -23,17 +23,26 @@
     </dependencies>
 
 
-
     <build>
+        <resources>
+            <!--In order to use jlink in a OS independent way with a config file
+                A filtered resource  is used. This puts in the proper path separator-->
+            <resource>
+                <directory>${project.basedir}/src/jlink</directory>
+                <includes>
+                    <include>jlink.cfg</include>
+                </includes>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}</targetPath>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <!--<release>11</release>-->
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>11</release>
                 </configuration>
             </plugin>
             <plugin>
@@ -50,7 +59,7 @@
                         <configuration>
                             <executable>jlink</executable>
                             <arguments>
-                                <argument>@jlink.cfg</argument>
+                                <argument>@${project.build.directory}/jlink.cfg</argument>
                             </arguments>
                         </configuration>
                     </execution>
