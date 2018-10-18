@@ -7,3 +7,6 @@ It uses Java 11, jlink and Java FX 11. It shows three things
 3. How to use jlink to generate an executable for the application
 4. How to do all this with Maven
 
+### Requirements
+Maven 3.5.x
+Java 11 JDK
