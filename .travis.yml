@@ -2,4 +2,3 @@ language: java
 jdk: openjdk11
 script:
   - export JAVA_HOME=$HOME/openjdk11
-  - mvn install
