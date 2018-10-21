@@ -1,2 +1,6 @@
 language: java
 jdk: openjdk11
+script: 
+  - export JAVA_HOME=$HOME/openjdk11
+  - $TRAVIS_BUILD_DIR/install_jdk.sh --install-openjdk11 --target $JAVA_HOME
+  - mvn install
